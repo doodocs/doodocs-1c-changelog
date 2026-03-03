@@ -489,10 +489,21 @@
         const typeMatch  = moduleName.match(/-([A-Z]+)$/);
         const typeTag    = typeMatch ? typeMatch[1] : '1С';
 
-        // Related versions — same module name, sorted newest first
+        // Related versions — same module name, sorted by semver descending
+        function semverParts(v) {
+          return parseVersion(v.version).replace(/^v/, '').split('.').map(Number);
+        }
+        function cmpSemver(a, b) {
+          const pa = semverParts(a[1]), pb = semverParts(b[1]);
+          for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+            const diff = (pb[i] ?? 0) - (pa[i] ?? 0);
+            if (diff !== 0) return diff;
+          }
+          return 0;
+        }
         const related = allEntries
           .filter(([k]) => parseModuleName(k) === moduleName)
-          .sort((a, b) => (b[1].date ?? '').localeCompare(a[1].date ?? ''));
+          .sort(cmpSemver);
 
         // Update header caption & page title
         document.getElementById('header-caption').textContent = moduleName;

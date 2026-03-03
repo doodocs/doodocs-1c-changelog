@@ -16,5 +16,11 @@
     "date": "2026-03-03",
     "description": "**Добавлен новый тип документов \"Изменение Графика Работы Списком\"**",
     "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulOtpravki-ZUP-1.5.2.0/ModulOtpravki-ZUP-1.5.2.0.epf"
+  },
+  "ModulPriema-ZUP v1.2.3.0": {
+    "version": "ModulPriema-ZUP/1.2.3.0",
+    "date": "2026-03-03",
+    "description": "## What's Changed\r\n* [DEL-5538] Проблема выгрузки нового сотрудника в 1С при совпадении ФИО by @Tr8ch in https://github.com/doodocs/doodocs-hr-1c-zup/pull/19\r\n* [DEL-5573] Создать опцию для синхронизации сотрудников в 1С Модуль Отправки by @Tr8ch in https://github.com/doodocs/doodocs-hr-1c-zup/pull/20\r\n\r\n## New Contributors\r\n* @Tr8ch made their first contribution in https://github.com/doodocs/doodocs-hr-1c-zup/pull/19\r\n\r\n**Full Changelog**: https://github.com/doodocs/doodocs-hr-1c-zup/compare/ModulPriema-ZUP/1.2.0.0...ModulPriema-ZUP/1.2.3.0",
+    "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulPriema-ZUP-1.2.3.0/ModulPriema-ZUP-1.2.3.0.epf"
   }
 }

@@ -2,96 +2,631 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <title>Реестр модулей 1С</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Реестр модулей 1С — Doodocs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        background: #f4f6f9;
-        padding: 40px;
+      /* ── shadcn UI Blue Theme tokens ── */
+      :root {
+        --background:          0 0% 100%;
+        --foreground:          222.2 84% 4.9%;
+        --card:                0 0% 100%;
+        --card-foreground:     222.2 84% 4.9%;
+        --primary:             221.2 83.2% 53.3%;
+        --primary-foreground:  210 40% 98%;
+        --secondary:           210 40% 96.1%;
+        --secondary-foreground:222.2 47.4% 11.2%;
+        --muted:               210 40% 96.1%;
+        --muted-foreground:    215.4 16.3% 46.9%;
+        --accent:              210 40% 96.1%;
+        --border:              214.3 31.8% 91.4%;
+        --ring:                221.2 83.2% 53.3%;
+        --radius:              0.5rem;
       }
-      h1 {
-        text-align: center;
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: hsl(var(--background));
+        color: hsl(var(--foreground));
+        min-height: 100vh;
+        line-height: 1.5;
+      }
+
+      /* ── Header ── */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        border-bottom: 1px solid hsl(var(--border));
+        background: hsl(var(--background) / 0.9);
+        backdrop-filter: blur(8px);
+      }
+      .header-inner {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 0 24px;
+        height: 58px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo-mark {
+        width: 30px;
+        height: 30px;
+        background: hsl(var(--primary));
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .logo-text {
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      .header-divider {
+        width: 1px;
+        height: 18px;
+        background: hsl(var(--border));
+        margin: 0 2px;
+      }
+      .header-caption {
+        font-size: 13px;
+        color: hsl(var(--muted-foreground));
+      }
+      .header-spacer { flex: 1; }
+      .header-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        border: 1px solid hsl(var(--border));
+        border-radius: 9999px;
+        padding: 3px 10px;
+        font-size: 12px;
+        color: hsl(var(--muted-foreground));
+      }
+      .status-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #22c55e;
+        animation: pulse 2s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
+      }
+
+      /* ── Main ── */
+      main {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 52px 24px 80px;
+      }
+
+      /* ── Hero ── */
+      .hero { margin-bottom: 44px; }
+      .hero-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: hsl(var(--primary) / 0.08);
+        color: hsl(var(--primary));
+        border: 1px solid hsl(var(--primary) / 0.18);
+        border-radius: 9999px;
+        padding: 4px 12px;
+        font-size: 11.5px;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+      .hero h1 {
+        font-size: clamp(28px, 4vw, 40px);
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        line-height: 1.15;
+        margin-bottom: 10px;
+      }
+      .hero p {
+        font-size: 15px;
+        color: hsl(var(--muted-foreground));
+        max-width: 480px;
+        line-height: 1.65;
+      }
+
+      /* ── Stats ── */
+      .stats {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 36px;
+        flex-wrap: wrap;
+      }
+      .stat-card {
+        background: hsl(var(--card));
+        border: 1px solid hsl(var(--border));
+        border-radius: var(--radius);
+        padding: 16px 20px;
+        min-width: 130px;
+        transition: box-shadow 0.15s;
+      }
+      .stat-card:hover {
+        box-shadow: 0 2px 12px hsl(var(--foreground) / 0.06);
+      }
+      .stat-label {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: hsl(var(--muted-foreground));
+        margin-bottom: 6px;
+      }
+      .stat-value {
+        font-size: 26px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: hsl(var(--foreground));
+      }
+      .stat-value.small { font-size: 17px; padding-top: 4px; }
+
+      /* ── Toolbar ── */
+      .toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 14px;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .search-wrap { position: relative; }
+      .search-icon {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: hsl(var(--muted-foreground));
+        pointer-events: none;
+      }
+      .search-input {
+        height: 36px;
+        border: 1px solid hsl(var(--border));
+        border-radius: var(--radius);
+        padding: 0 12px 0 34px;
+        font-size: 13.5px;
+        font-family: inherit;
+        background: hsl(var(--background));
+        color: hsl(var(--foreground));
+        outline: none;
+        width: 260px;
+        transition: border-color 0.15s, box-shadow 0.15s;
+      }
+      .search-input::placeholder { color: hsl(var(--muted-foreground)); }
+      .search-input:focus {
+        border-color: hsl(var(--primary));
+        box-shadow: 0 0 0 3px hsl(var(--primary) / 0.12);
+      }
+      .result-count {
+        font-size: 13px;
+        color: hsl(var(--muted-foreground));
+      }
+
+      /* ── Table ── */
+      .table-wrap {
+        background: hsl(var(--card));
+        border: 1px solid hsl(var(--border));
+        border-radius: var(--radius);
+        overflow: hidden;
       }
       table {
         width: 100%;
         border-collapse: collapse;
-        background: white;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       }
-      th,
-      td {
-        padding: 12px;
-        text-align: left;
+      thead {
+        background: hsl(var(--muted));
+        border-bottom: 1px solid hsl(var(--border));
       }
       th {
-        background: #2c3e50;
-        color: white;
+        padding: 9px 16px;
+        text-align: left;
+        font-size: 11.5px;
+        font-weight: 600;
+        color: hsl(var(--muted-foreground));
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        white-space: nowrap;
+        user-select: none;
       }
-      tr:nth-child(even) {
-        background: #f2f2f2;
+      td {
+        padding: 14px 16px;
+        font-size: 13.5px;
+        border-bottom: 1px solid hsl(var(--border));
+        vertical-align: top;
       }
-      .version {
-        font-weight: bold;
-        color: #27ae60;
+      tr:last-child td { border-bottom: none; }
+      tbody tr { transition: background 0.1s; }
+      tbody tr:hover { background: hsl(var(--muted) / 0.45); }
+
+      /* Row animation */
+      @keyframes rowIn {
+        from { opacity: 0; transform: translateY(6px); }
+        to   { opacity: 1; transform: translateY(0); }
       }
-      .updated {
-        color: #7f8c8d;
+      tbody tr { animation: rowIn 0.28s ease both; }
+      tbody tr:nth-child(1) { animation-delay: 0.04s; }
+      tbody tr:nth-child(2) { animation-delay: 0.09s; }
+      tbody tr:nth-child(3) { animation-delay: 0.14s; }
+      tbody tr:nth-child(4) { animation-delay: 0.19s; }
+      tbody tr:nth-child(5) { animation-delay: 0.24s; }
+
+      /* ── Module cell ── */
+      .mod-cell {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .mod-icon {
+        width: 34px;
+        height: 34px;
+        background: hsl(var(--primary) / 0.1);
+        color: hsl(var(--primary));
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .mod-name {
+        font-weight: 600;
+        font-size: 13.5px;
+        color: hsl(var(--foreground));
+        line-height: 1.3;
+      }
+      .mod-sub {
+        font-size: 11.5px;
+        color: hsl(var(--muted-foreground));
+        font-family: 'Geist Mono', monospace;
+        margin-top: 1px;
+      }
+
+      /* ── Version badge ── */
+      .version-badge {
+        display: inline-flex;
+        align-items: center;
+        background: hsl(var(--primary) / 0.08);
+        color: hsl(var(--primary));
+        border: 1px solid hsl(var(--primary) / 0.2);
+        border-radius: 9999px;
+        padding: 2px 10px;
+        font-size: 12px;
+        font-weight: 600;
+        font-family: 'Geist Mono', monospace;
+        white-space: nowrap;
+      }
+
+      /* ── Date ── */
+      .date-cell {
+        color: hsl(var(--muted-foreground));
         font-size: 13px;
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
       }
-      .download-btn {
-        background: #3498db;
-        color: white;
+
+      /* ── Description ── */
+      .desc-cell { max-width: 380px; }
+      .desc-text {
+        font-size: 13px;
+        color: hsl(var(--muted-foreground));
+        line-height: 1.55;
+      }
+      .desc-text strong {
+        color: hsl(var(--foreground));
+        font-weight: 600;
+        display: block;
+        margin-bottom: 4px;
+      }
+      .desc-text ul {
+        margin-left: 14px;
+        margin-top: 2px;
+      }
+      .desc-text li { margin-bottom: 2px; }
+
+      /* ── Download button ── */
+      .btn-dl {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: hsl(var(--primary));
+        color: hsl(var(--primary-foreground));
         border: none;
-        padding: 8px 14px;
-        border-radius: 6px;
+        border-radius: var(--radius);
+        padding: 7px 13px;
+        font-size: 13px;
+        font-weight: 500;
+        font-family: inherit;
         cursor: pointer;
+        text-decoration: none;
+        transition: background 0.15s, box-shadow 0.15s, transform 0.1s;
+        white-space: nowrap;
       }
-      .download-btn:hover {
-        background: #2980b9;
+      .btn-dl:hover {
+        background: hsl(221.2 83.2% 47%);
+        box-shadow: 0 3px 10px hsl(var(--primary) / 0.35);
+        transform: translateY(-1px);
       }
+      .btn-dl:active { transform: translateY(0); box-shadow: none; }
+
+      /* ── Empty state ── */
+      .empty-state {
+        padding: 64px 24px;
+        text-align: center;
+        color: hsl(var(--muted-foreground));
+      }
+      .empty-icon { font-size: 30px; margin-bottom: 10px; }
+      .empty-text { font-size: 14px; }
+
+      /* ── Footer ── */
+      footer {
+        border-top: 1px solid hsl(var(--border));
+        padding: 22px 24px;
+        text-align: center;
+        font-size: 13px;
+        color: hsl(var(--muted-foreground));
+      }
+      footer a {
+        color: hsl(var(--primary));
+        text-decoration: none;
+      }
+      footer a:hover { text-decoration: underline; }
     </style>
   </head>
-
   <body>
-    <h1>📦 Реестр модулей 1С</h1>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Модуль</th>
-          <th>Версия</th>
-          <th>Дата</th>
-          <th>Описание</th>
-          <th>Скачать</th>
-        </tr>
-      </thead>
-      <tbody id="registry-body"></tbody>
-    </table>
+    <!-- ── Header ── -->
+    <header>
+      <div class="header-inner">
+        <div class="logo-mark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2">
+            <path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>
+          </svg>
+        </div>
+        <span class="logo-text">Doodocs</span>
+        <div class="header-divider"></div>
+        <span class="header-caption">Реестр модулей 1С</span>
+        <div class="header-spacer"></div>
+        <div class="header-badge">
+          <div class="status-dot"></div>
+          Актуально
+        </div>
+      </div>
+    </header>
+
+    <!-- ── Main ── -->
+    <main>
+
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-pill">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Открытый реестр
+        </div>
+        <h1>Реестр модулей 1С</h1>
+        <p>Публичный каталог расширений и модулей для платформы 1С. Все обновления публикуются через Telegram-канал.</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats" id="stats"></div>
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="search-wrap">
+          <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <input class="search-input" id="search" type="text" placeholder="Поиск модуля..." autocomplete="off" />
+        </div>
+        <span class="result-count" id="count"></span>
+      </div>
+
+      <!-- Table -->
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Модуль</th>
+              <th>Версия</th>
+              <th>Дата</th>
+              <th>Изменения</th>
+              <th>Скачать</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+
+    </main>
+
+    <!-- ── Footer ── -->
+    <footer>
+      © 2026 Doodocs &mdash; Публичный реестр модулей 1С
+    </footer>
 
     <script>
-      fetch("registry.json")
-        .then((res) => res.json())
-        .then((data) => {
-          const tbody = document.getElementById("registry-body");
-          const entries = Object.entries(data).reverse();
+      // ── Helpers ──────────────────────────────────────────
+      function parseVersion(v) {
+        if (!v) return '—';
+        const p = v.split('/');
+        return p.length > 1 ? 'v' + p[1] : v;
+      }
 
-          entries.forEach(([moduleName, info]) => {
-            const row = document.createElement("tr");
+      function parseModuleName(key) {
+        const m = key.match(/^(.+?)\s+v[\d.]+$/);
+        return m ? m[1] : key;
+      }
 
-            const downloadBtn = info.download
-              ? `<a href="${info.download}" target="_blank"><button class="download-btn">Скачать</button></a>`
-              : "-";
+      function parseTypeTag(name) {
+        const m = name.match(/-([A-Z]+)$/);
+        return m ? m[1] : '1С';
+      }
 
-            row.innerHTML = `
-                <td>${moduleName}</td>
-                <td class="version">${info.version || "-"}</td>
-                <td class="updated">${info.date || "-"}</td>
-                <td>${info.description || "-"}</td>
-                <td>${downloadBtn}</td>
-            `;
-            tbody.appendChild(row);
+      function formatDate(d) {
+        if (!d) return '—';
+        const dt = new Date(d);
+        return dt.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' });
+      }
+
+      function mdToHtml(text) {
+        if (!text) return '—';
+        // Normalize \r\n
+        text = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+        // ### headers → <strong>
+        text = text.replace(/^### (.+)$/gm, '<strong>$1</strong>');
+        // - list items → <li>
+        text = text.replace(/^[-*] (.+)$/gm, '<li>$1</li>');
+        // Wrap consecutive <li> in <ul>
+        text = text.replace(/(<li>[\s\S]*?<\/li>(\n<li>[\s\S]*?<\/li>)*)/g, '<ul>$1</ul>');
+        // Remove blank lines between tags
+        text = text.replace(/(<\/ul>)\n+(<ul>)/g, '$1$2');
+        // Remaining newlines → <br>
+        text = text.replace(/\n+/g, '<br>');
+        text = text.replace(/^(<br>)+/, '');
+        return text;
+      }
+
+      // ── Icons ─────────────────────────────────────────────
+      const ICON_PKG = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="m7.5 4.27 9 5.15"/>
+        <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
+        <path d="m3.3 7 8.7 5 8.7-5"/>
+        <path d="M12 22V12"/>
+      </svg>`;
+
+      const ICON_DL = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>`;
+
+      // ── Render ─────────────────────────────────────────────
+      let ALL = [];
+
+      function render(entries) {
+        const tbody = document.getElementById('tbody');
+        const countEl = document.getElementById('count');
+        tbody.innerHTML = '';
+        countEl.textContent = entries.length + ' ' + plural(entries.length, 'запись', 'записи', 'записей');
+
+        if (!entries.length) {
+          tbody.innerHTML = `
+            <tr><td colspan="5">
+              <div class="empty-state">
+                <div class="empty-icon">🔍</div>
+                <div class="empty-text">По вашему запросу ничего не найдено</div>
+              </div>
+            </td></tr>`;
+          return;
+        }
+
+        entries.forEach(([key, info]) => {
+          const name    = parseModuleName(key);
+          const type    = parseTypeTag(name);
+          const version = parseVersion(info.version);
+          const date    = formatDate(info.date);
+          const desc    = mdToHtml(info.description);
+          const dlBtn   = info.download
+            ? `<a href="${info.download}" target="_blank" rel="noopener" class="btn-dl">${ICON_DL} Скачать</a>`
+            : '<span style="color:hsl(215.4 16.3% 46.9%)">—</span>';
+
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>
+              <div class="mod-cell">
+                <div class="mod-icon">${ICON_PKG}</div>
+                <div>
+                  <div class="mod-name">${name}</div>
+                  <div class="mod-sub">${type}</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="version-badge">${version}</span></td>
+            <td><span class="date-cell">${date}</span></td>
+            <td class="desc-cell"><div class="desc-text">${desc}</div></td>
+            <td>${dlBtn}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      function plural(n, one, few, many) {
+        const mod10 = n % 10, mod100 = n % 100;
+        if (mod10 === 1 && mod100 !== 11) return one;
+        if (mod10 >= 2 && mod10 <= 4 && (mod100 < 10 || mod100 >= 20)) return few;
+        return many;
+      }
+
+      // ── Fetch & init ────────────────────────────────────────
+      fetch('registry.json')
+        .then(r => r.json())
+        .then(data => {
+          ALL = Object.entries(data).reverse();
+
+          // Stats
+          const uniqueNames = new Set(ALL.map(([k]) => parseModuleName(k))).size;
+          const latestDate  = ALL[0]?.[1]?.date ?? '';
+          document.getElementById('stats').innerHTML = `
+            <div class="stat-card">
+              <div class="stat-label">Версий</div>
+              <div class="stat-value">${ALL.length}</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Модулей</div>
+              <div class="stat-value">${uniqueNames}</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Обновлено</div>
+              <div class="stat-value small">${formatDate(latestDate)}</div>
+            </div>
+          `;
+
+          render(ALL);
+
+          document.getElementById('search').addEventListener('input', e => {
+            const q = e.target.value.toLowerCase().trim();
+            render(q ? ALL.filter(([k, v]) =>
+              k.toLowerCase().includes(q) ||
+              (v.description ?? '').toLowerCase().includes(q)
+            ) : ALL);
           });
+        })
+        .catch(err => {
+          const isFile = location.protocol === 'file:';
+          document.getElementById('tbody').innerHTML = `
+            <tr><td colspan="5">
+              <div class="empty-state">
+                <div class="empty-icon">⚠️</div>
+                <div class="empty-text" style="max-width:420px;margin:0 auto">
+                  ${isFile
+                    ? `Файл открыт напрямую — браузер блокирует загрузку данных.<br><br>
+                       Запустите локальный сервер:<br>
+                       <code style="background:hsl(var(--muted));padding:4px 8px;border-radius:4px;font-size:12px;display:inline-block;margin-top:6px">
+                         python3 -m http.server 8080
+                       </code><br>
+                       <span style="font-size:12px;margin-top:6px;display:inline-block">
+                         Затем откройте <a href="http://localhost:8080" style="color:hsl(var(--primary))">localhost:8080</a>
+                       </span>`
+                    : 'Не удалось загрузить реестр'
+                  }
+                </div>
+              </div>
+            </td></tr>`;
+          console.error('[registry]', err);
         });
     </script>
   </body>

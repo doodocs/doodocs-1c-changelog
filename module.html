@@ -240,14 +240,25 @@
         line-height: 1.7;
         color: hsl(var(--foreground));
       }
+      .changelog h2 {
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        color: hsl(var(--foreground));
+        margin-top: 24px;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid hsl(var(--border));
+      }
+      .changelog h2:first-child { margin-top: 0; }
       .changelog h3 {
-        font-size: 13px;
-        font-weight: 600;
+        font-size: 11.5px;
+        font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.06em;
         color: hsl(var(--muted-foreground));
         margin-top: 20px;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         padding-bottom: 6px;
         border-bottom: 1px solid hsl(var(--border));
       }
@@ -260,6 +271,19 @@
       }
       .changelog li { color: hsl(var(--foreground)); }
       .changelog p { margin-bottom: 8px; }
+      .changelog a {
+        color: hsl(var(--primary));
+        text-decoration: none;
+        word-break: break-all;
+      }
+      .changelog a:hover { text-decoration: underline; }
+      .changelog code {
+        font-family: 'Geist Mono', monospace;
+        font-size: 12.5px;
+        background: hsl(var(--muted));
+        padding: 2px 5px;
+        border-radius: 4px;
+      }
       .changelog strong { font-weight: 600; }
 
       /* ── Info sidebar ── */
@@ -403,17 +427,34 @@
         return m ? m[1] : key;
       }
 
-      function formatDate(d) {
+      function formatDate(d, long = false) {
         if (!d) return '—';
-        return new Date(d).toLocaleDateString('ru-RU', {
-          day: '2-digit', month: 'long', year: 'numeric'
-        });
+        const opts = long
+          ? { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' }
+          : { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+        return new Date(d).toLocaleString('ru-RU', opts);
+      }
+
+      function inlineMd(s) {
+        // **Full Changelog**: https://url → link
+        s = s.replace(/\*\*Full Changelog\*\*:\s*(https?:\/\/\S+)/g,
+          '<strong>Full Changelog</strong>: <a href="$1" target="_blank" rel="noopener">$1</a>');
+        // [text](url) → link
+        s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+          '<a href="$2" target="_blank" rel="noopener">$1</a>');
+        // **bold**
+        s = s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        // `code`
+        s = s.replace(/`(.+?)`/g, '<code>$1</code>');
+        // bare https://... URLs (not already inside href)
+        s = s.replace(/(?<!href=")(https?:\/\/[^\s<]+)/g,
+          '<a href="$1" target="_blank" rel="noopener">$1</a>');
+        return s;
       }
 
       function mdToHtml(text) {
         if (!text) return '<p>—</p>';
         text = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-
         const lines = text.split('\n');
         let html = '';
         let inUl = false;
@@ -424,9 +465,12 @@
             if (inUl) { html += '</ul>'; inUl = false; }
             continue;
           }
-          if (/^### /.test(line)) {
+          if (/^## /.test(line)) {
             if (inUl) { html += '</ul>'; inUl = false; }
-            html += `<h3>${line.slice(4)}</h3>`;
+            html += `<h2>${inlineMd(line.slice(3))}</h2>`;
+          } else if (/^#{1,3} /.test(line)) {
+            if (inUl) { html += '</ul>'; inUl = false; }
+            html += `<h3>${inlineMd(line.replace(/^#{1,3} /, ''))}</h3>`;
           } else if (/^[-*] /.test(line)) {
             if (!inUl) { html += '<ul>'; inUl = true; }
             html += `<li>${inlineMd(line.slice(2))}</li>`;
@@ -436,14 +480,17 @@
           }
         }
         if (inUl) html += '</ul>';
-        return html;
+        return html || '<p>—</p>';
       }
 
-      function inlineMd(s) {
-        return s
-          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-          .replace(/`(.+?)`/g, '<code>$1</code>');
-      }
+      // ── Config helpers ────────────────────────────────────
+      const CONFIG_LABELS = {
+        'ZUP': 'ЗУП',
+        'BUH': 'Бухгалтерия',
+        'BH':  'Бухгалтерия',
+        'BP':  'Бухгалтерия',
+      };
+      function configLabel(code) { return CONFIG_LABELS[code] ?? code ?? '—'; }
 
       // ── SVG Icons ─────────────────────────────────────────
       const ICON_PKG = `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -486,8 +533,7 @@
       function renderPage(key, info, allEntries) {
         const moduleName = parseModuleName(key);
         const version    = parseVersion(info.version);
-        const typeMatch  = moduleName.match(/-([A-Z]+)$/);
-        const typeTag    = typeMatch ? typeMatch[1] : '1С';
+        const typeTag    = configLabel(info.config);
 
         // Related versions — same module name, sorted by semver descending
         function semverParts(v) {
@@ -531,7 +577,7 @@
               <div class="module-hero-meta">
                 <span class="badge badge-blue">${version}</span>
                 <span class="badge badge-muted">${typeTag}</span>
-                <span class="badge badge-muted">${formatDate(info.date)}</span>
+                <span class="badge badge-muted">${formatDate(info.date, true)}</span>
               </div>
               <div class="module-hero-actions">
                 ${info.download
@@ -579,7 +625,7 @@
                   </div>
                   <div class="info-row">
                     <span class="info-label">Дата</span>
-                    <span class="info-value" style="font-family:inherit">${formatDate(info.date)}</span>
+                    <span class="info-value" style="font-family:inherit">${formatDate(info.date, true)}</span>
                   </div>
                   ${info.download ? `
                   <div class="info-row">

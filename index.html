@@ -408,22 +408,73 @@
         border-radius: 3px;
       }
 
-      /* ── Responsive ── */
+      /* ── Responsive: tablet — скрыть колонку "Изменения" ── */
       @media (max-width: 900px) {
         th:nth-child(5), td:nth-child(5) { display: none; }
       }
+
+      /* ── Responsive: mobile — card layout ── */
       @media (max-width: 640px) {
-        main { padding: 32px 16px 60px; }
-        .hero h1 { font-size: 24px; }
+        /* Layout */
+        main { padding: 28px 16px 56px; }
+        .hero { margin-bottom: 28px; }
+        .hero h1 { font-size: 22px; }
         .hero p { font-size: 14px; }
         .toolbar { flex-direction: column; align-items: stretch; gap: 8px; }
         .search-input { width: 100%; }
         .filter-pills { justify-content: flex-start; }
         .stats { gap: 8px; }
-        .stat-card { min-width: 0; flex: 1; }
-        th:nth-child(2), td:nth-child(2) { display: none; }
-        th:nth-child(4), td:nth-child(4) { display: none; }
-        th, td { padding: 10px 12px; }
+        .stat-card { min-width: 0; flex: 1; padding: 12px 14px; }
+        .stat-value { font-size: 20px; }
+        .stat-value.small { font-size: 14px; padding-top: 2px; }
+
+        /* Table → Card list */
+        .table-wrap {
+          border: none;
+          background: transparent;
+          border-radius: 0;
+          overflow: visible;
+        }
+        table, tbody { display: block; }
+        thead { display: none; }
+        tbody { display: flex; flex-direction: column; gap: 10px; }
+
+        tbody tr {
+          display: block;
+          background: hsl(var(--card));
+          border: 1px solid hsl(var(--border));
+          border-radius: var(--radius);
+          padding: 14px 16px;
+          animation: rowIn 0.28s ease both;
+        }
+        /* reset table-specific overrides */
+        tbody tr:hover { background: hsl(var(--card)); }
+        td { display: block; padding: 0; border-bottom: none; }
+
+        /* Module name row */
+        td:nth-child(1) { margin-bottom: 10px; }
+        td:nth-child(1) .mod-cell { gap: 8px; }
+        td:nth-child(1) .mod-icon { width: 30px; height: 30px; }
+
+        /* Config + Version + Date — inline on one line */
+        td:nth-child(2),
+        td:nth-child(3),
+        td:nth-child(4) {
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 6px;
+          margin-bottom: 10px;
+        }
+
+        /* Description — hidden */
+        td:nth-child(5) { display: none; }
+
+        /* Download — full-width button */
+        td:nth-child(6) { display: block; }
+        td:nth-child(6) a.btn-dl {
+          width: 100%;
+          justify-content: center;
+        }
       }
 
       /* ── Download button ── */

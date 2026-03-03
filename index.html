@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Реестр модулей 1С</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f9;
+        padding: 40px;
+      }
+      h1 {
+        text-align: center;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+      }
+      th {
+        background: #2c3e50;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background: #f2f2f2;
+      }
+      .version {
+        font-weight: bold;
+        color: #27ae60;
+      }
+      .updated {
+        color: #7f8c8d;
+        font-size: 13px;
+      }
+      .download-btn {
+        background: #3498db;
+        color: white;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .download-btn:hover {
+        background: #2980b9;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>📦 Реестр модулей 1С</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Модуль</th>
+          <th>Версия</th>
+          <th>Дата</th>
+          <th>Описание</th>
+          <th>Скачать</th>
+        </tr>
+      </thead>
+      <tbody id="registry-body"></tbody>
+    </table>
+
+    <script>
+      fetch("registry.json")
+        .then((res) => res.json())
+        .then((data) => {
+          const tbody = document.getElementById("registry-body");
+          const entries = Object.entries(data).reverse();
+
+          entries.forEach(([moduleName, info]) => {
+            const row = document.createElement("tr");
+
+            const downloadBtn = info.download
+              ? `<a href="${info.download}" target="_blank"><button class="download-btn">Скачать</button></a>`
+              : "-";
+
+            row.innerHTML = `
+                <td>${moduleName}</td>
+                <td class="version">${info.version || "-"}</td>
+                <td class="updated">${info.date || "-"}</td>
+                <td>${info.description || "-"}</td>
+                <td>${downloadBtn}</td>
+            `;
+            tbody.appendChild(row);
+          });
+        });
+    </script>
+  </body>
+</html>

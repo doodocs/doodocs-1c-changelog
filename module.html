@@ -12,21 +12,27 @@
 
     <style>
       :root {
-        --background:           0 0% 100%;
-        --foreground:           222.2 84% 4.9%;
-        --card:                 0 0% 100%;
-        --primary:              221.2 83.2% 53.3%;
-        --primary-foreground:   210 40% 98%;
-        --muted:                210 40% 96.1%;
-        --muted-foreground:     215.4 16.3% 46.9%;
-        --border:               214.3 31.8% 91.4%;
-        --radius:               0.5rem;
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
+        --primary: 221.2 83.2% 53.3%;
+        --primary-foreground: 210 40% 98%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --border: 214.3 31.8% 91.4%;
+        --radius: 0.5rem;
       }
 
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
       body {
-        font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-family: "Geist", -apple-system, BlinkMacSystemFont, sans-serif;
         background: hsl(var(--background));
         color: hsl(var(--foreground));
         min-height: 100vh;
@@ -69,8 +75,16 @@
         text-decoration: none;
         color: hsl(var(--foreground));
       }
-      .header-divider { width: 1px; height: 18px; background: hsl(var(--border)); margin: 0 2px; }
-      .header-caption { font-size: 13px; color: hsl(var(--muted-foreground)); }
+      .header-divider {
+        width: 1px;
+        height: 18px;
+        background: hsl(var(--border));
+        margin: 0 2px;
+      }
+      .header-caption {
+        font-size: 13px;
+        color: hsl(var(--muted-foreground));
+      }
 
       /* ── Main ── */
       main {
@@ -93,9 +107,18 @@
         text-decoration: none;
         transition: color 0.15s;
       }
-      .breadcrumb a:hover { color: hsl(var(--primary)); }
-      .breadcrumb-sep { opacity: 0.4; font-size: 16px; line-height: 1; }
-      .breadcrumb-current { color: hsl(var(--foreground)); font-weight: 500; }
+      .breadcrumb a:hover {
+        color: hsl(var(--primary));
+      }
+      .breadcrumb-sep {
+        opacity: 0.4;
+        font-size: 16px;
+        line-height: 1;
+      }
+      .breadcrumb-current {
+        color: hsl(var(--foreground));
+        font-weight: 500;
+      }
 
       /* ── Module hero ── */
       .module-hero {
@@ -118,7 +141,10 @@
         flex-shrink: 0;
         border: 1px solid hsl(var(--primary) / 0.15);
       }
-      .module-hero-body { flex: 1; min-width: 0; }
+      .module-hero-body {
+        flex: 1;
+        min-width: 0;
+      }
       .module-hero-name {
         font-size: 28px;
         font-weight: 700;
@@ -146,7 +172,7 @@
         background: hsl(var(--primary) / 0.1);
         color: hsl(var(--primary));
         border: 1px solid hsl(var(--primary) / 0.2);
-        font-family: 'Geist Mono', monospace;
+        font-family: "Geist Mono", monospace;
       }
       .badge-muted {
         background: hsl(var(--muted));
@@ -176,7 +202,10 @@
         white-space: nowrap;
         border: none;
       }
-      .btn:active { transform: translateY(0) !important; box-shadow: none !important; }
+      .btn:active {
+        transform: translateY(0) !important;
+        box-shadow: none !important;
+      }
 
       .btn-primary {
         background: hsl(var(--primary));
@@ -208,7 +237,9 @@
         align-items: start;
       }
       @media (max-width: 680px) {
-        .grid { grid-template-columns: 1fr; }
+        .grid {
+          grid-template-columns: 1fr;
+        }
       }
 
       /* ── Card ── */
@@ -231,8 +262,13 @@
         color: hsl(var(--foreground));
         letter-spacing: -0.01em;
       }
-      .card-icon { color: hsl(var(--muted-foreground)); display: flex; }
-      .card-body { padding: 20px; }
+      .card-icon {
+        color: hsl(var(--muted-foreground));
+        display: flex;
+      }
+      .card-body {
+        padding: 20px;
+      }
 
       /* ── Changelog ── */
       .changelog {
@@ -250,7 +286,9 @@
         padding-bottom: 8px;
         border-bottom: 1px solid hsl(var(--border));
       }
-      .changelog h2:first-child { margin-top: 0; }
+      .changelog h2:first-child {
+        margin-top: 0;
+      }
       .changelog h3 {
         font-size: 11.5px;
         font-weight: 700;
@@ -262,29 +300,39 @@
         padding-bottom: 6px;
         border-bottom: 1px solid hsl(var(--border));
       }
-      .changelog h3:first-child { margin-top: 0; }
+      .changelog h3:first-child {
+        margin-top: 0;
+      }
       .changelog ul {
         margin-left: 18px;
         display: flex;
         flex-direction: column;
         gap: 6px;
       }
-      .changelog li { color: hsl(var(--foreground)); }
-      .changelog p { margin-bottom: 8px; }
+      .changelog li {
+        color: hsl(var(--foreground));
+      }
+      .changelog p {
+        margin-bottom: 8px;
+      }
       .changelog a {
         color: hsl(var(--primary));
         text-decoration: none;
         word-break: break-all;
       }
-      .changelog a:hover { text-decoration: underline; }
+      .changelog a:hover {
+        text-decoration: underline;
+      }
       .changelog code {
-        font-family: 'Geist Mono', monospace;
+        font-family: "Geist Mono", monospace;
         font-size: 12.5px;
         background: hsl(var(--muted));
         padding: 2px 5px;
         border-radius: 4px;
       }
-      .changelog strong { font-weight: 600; }
+      .changelog strong {
+        font-weight: 600;
+      }
 
       /* ── Info sidebar ── */
       .info-row {
@@ -296,13 +344,21 @@
         border-bottom: 1px solid hsl(var(--border));
         font-size: 13.5px;
       }
-      .info-row:first-child { padding-top: 0; }
-      .info-row:last-child { border-bottom: none; padding-bottom: 0; }
-      .info-label { color: hsl(var(--muted-foreground)); flex-shrink: 0; }
+      .info-row:first-child {
+        padding-top: 0;
+      }
+      .info-row:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .info-label {
+        color: hsl(var(--muted-foreground));
+        flex-shrink: 0;
+      }
       .info-value {
         font-weight: 500;
         text-align: right;
-        font-family: 'Geist Mono', monospace;
+        font-family: "Geist Mono", monospace;
         font-size: 12.5px;
         word-break: break-all;
       }
@@ -322,8 +378,14 @@
         font-weight: 600;
         color: hsl(var(--foreground));
       }
-      .download-sub { font-size: 12.5px; color: hsl(var(--muted-foreground)); }
-      .download-card .btn-primary { width: 100%; justify-content: center; }
+      .download-sub {
+        font-size: 12.5px;
+        color: hsl(var(--muted-foreground));
+      }
+      .download-card .btn-primary {
+        width: 100%;
+        justify-content: center;
+      }
 
       /* ── Related versions ── */
       .related-list {
@@ -341,7 +403,9 @@
         text-decoration: none;
         transition: background 0.1s;
       }
-      .related-item:hover { background: hsl(var(--muted)); }
+      .related-item:hover {
+        background: hsl(var(--muted));
+      }
       .related-item.active {
         background: hsl(var(--primary) / 0.08);
         border: 1px solid hsl(var(--primary) / 0.15);
@@ -350,10 +414,15 @@
         font-size: 13px;
         font-weight: 500;
         color: hsl(var(--foreground));
-        font-family: 'Geist Mono', monospace;
+        font-family: "Geist Mono", monospace;
       }
-      .related-item.active .related-item-name { color: hsl(var(--primary)); }
-      .related-item-date { font-size: 11.5px; color: hsl(var(--muted-foreground)); }
+      .related-item.active .related-item-name {
+        color: hsl(var(--primary));
+      }
+      .related-item-date {
+        font-size: 11.5px;
+        color: hsl(var(--muted-foreground));
+      }
 
       /* ── Not found ── */
       .not-found {
@@ -361,19 +430,41 @@
         text-align: center;
         color: hsl(var(--muted-foreground));
       }
-      .not-found-icon { font-size: 36px; margin-bottom: 12px; }
-      .not-found-text { font-size: 15px; margin-bottom: 20px; }
+      .not-found-icon {
+        font-size: 36px;
+        margin-bottom: 12px;
+      }
+      .not-found-text {
+        font-size: 15px;
+        margin-bottom: 20px;
+      }
 
       /* ── Page animation ── */
       @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(10px); }
-        to   { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
-      .animate { animation: fadeUp 0.3s ease both; }
-      .animate-1 { animation-delay: 0.04s; }
-      .animate-2 { animation-delay: 0.09s; }
-      .animate-3 { animation-delay: 0.14s; }
-      .animate-4 { animation-delay: 0.19s; }
+      .animate {
+        animation: fadeUp 0.3s ease both;
+      }
+      .animate-1 {
+        animation-delay: 0.04s;
+      }
+      .animate-2 {
+        animation-delay: 0.09s;
+      }
+      .animate-3 {
+        animation-delay: 0.14s;
+      }
+      .animate-4 {
+        animation-delay: 0.19s;
+      }
 
       footer {
         border-top: 1px solid hsl(var(--border));
@@ -385,37 +476,68 @@
 
       /* ── Responsive ── */
       @media (max-width: 680px) {
-        .grid { grid-template-columns: 1fr; }
+        .grid {
+          grid-template-columns: 1fr;
+        }
       }
       @media (max-width: 600px) {
-        main { padding: 28px 16px 60px; }
-        .breadcrumb { margin-bottom: 20px; font-size: 12px; }
+        main {
+          padding: 28px 16px 60px;
+        }
+        .breadcrumb {
+          margin-bottom: 20px;
+          font-size: 12px;
+        }
         .module-hero {
           flex-direction: column;
           gap: 14px;
           margin-bottom: 24px;
           padding-bottom: 24px;
         }
-        .module-hero-icon { width: 44px; height: 44px; border-radius: 10px; }
-        .module-hero-name { font-size: 20px; }
-        .module-hero-actions { flex-direction: column; }
-        .module-hero-actions .btn { width: 100%; justify-content: center; }
-        .card-body { padding: 16px; }
-        .download-card .btn-primary { width: 100%; justify-content: center; }
+        .module-hero-icon {
+          width: 44px;
+          height: 44px;
+          border-radius: 10px;
+        }
+        .module-hero-name {
+          font-size: 20px;
+        }
+        .module-hero-actions {
+          flex-direction: column;
+        }
+        .module-hero-actions .btn {
+          width: 100%;
+          justify-content: center;
+        }
+        .card-body {
+          padding: 16px;
+        }
+        .download-card .btn-primary {
+          width: 100%;
+          justify-content: center;
+        }
       }
     </style>
   </head>
   <body>
-
     <!-- ── Header ── -->
     <header>
       <div class="header-inner">
         <a class="logo-mark" href="index.html">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2">
-            <path d="m7.5 4.27 9 5.15"/>
-            <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
-            <path d="m3.3 7 8.7 5 8.7-5"/>
-            <path d="M12 22V12"/>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            stroke-width="2.2"
+          >
+            <path d="m7.5 4.27 9 5.15" />
+            <path
+              d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"
+            />
+            <path d="m3.3 7 8.7 5 8.7-5" />
+            <path d="M12 22V12" />
           </svg>
         </a>
         <a href="index.html" class="logo-text">Doodocs</a>
@@ -426,7 +548,7 @@
 
     <!-- ── Main ── -->
     <main id="main">
-      <div class="not-found" style="display:none" id="not-found">
+      <div class="not-found" style="display: none" id="not-found">
         <div class="not-found-icon">📭</div>
         <div class="not-found-text">Модуль не найден</div>
         <a href="index.html" class="btn btn-ghost">← Назад к реестру</a>
@@ -438,9 +560,9 @@
     <script>
       // ── Helpers ──────────────────────────────────────────
       function parseVersion(v) {
-        if (!v) return '—';
-        const p = v.split('/');
-        return p.length > 1 ? 'v' + p[1] : v;
+        if (!v) return "—";
+        const p = v.split("/");
+        return p.length > 1 ? "v" + p[1] : v;
       }
 
       function parseModuleName(key) {
@@ -449,69 +571,104 @@
       }
 
       function formatDate(d, long = false) {
-        if (!d) return '—';
+        if (!d) return "—";
         const opts = long
-          ? { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' }
-          : { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' };
-        return new Date(d).toLocaleString('ru-RU', opts);
+          ? {
+              day: "2-digit",
+              month: "long",
+              year: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+            }
+          : {
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+            };
+        return new Date(d).toLocaleString("ru-RU", opts);
       }
 
       function inlineMd(s) {
         // **Full Changelog**: https://url → link
-        s = s.replace(/\*\*Full Changelog\*\*:\s*(https?:\/\/\S+)/g,
-          '<strong>Full Changelog</strong>: <a href="$1" target="_blank" rel="noopener">$1</a>');
+        s = s.replace(
+          /\*\*Full Changelog\*\*:\s*(https?:\/\/\S+)/g,
+          '<strong>Full Changelog</strong>: <a href="$1" target="_blank" rel="noopener">$1</a>'
+        );
         // [text](url) → link
-        s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
-          '<a href="$2" target="_blank" rel="noopener">$1</a>');
+        s = s.replace(
+          /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+          '<a href="$2" target="_blank" rel="noopener">$1</a>'
+        );
         // **bold**
-        s = s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        s = s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
         // `code`
-        s = s.replace(/`(.+?)`/g, '<code>$1</code>');
+        s = s.replace(/`(.+?)`/g, "<code>$1</code>");
         // bare https://... URLs (not already inside href)
-        s = s.replace(/(?<!href=")(https?:\/\/[^\s<]+)/g,
-          '<a href="$1" target="_blank" rel="noopener">$1</a>');
+        s = s.replace(
+          /(?<!href=")(https?:\/\/[^\s<]+)/g,
+          '<a href="$1" target="_blank" rel="noopener">$1</a>'
+        );
         return s;
       }
 
       function mdToHtml(text) {
-        if (!text) return '<p>—</p>';
-        text = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-        const lines = text.split('\n');
-        let html = '';
+        if (!text) return "<p>—</p>";
+        text = text.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+        const lines = text.split("\n");
+        let html = "";
         let inUl = false;
 
         for (const raw of lines) {
           const line = raw.trim();
           if (!line) {
-            if (inUl) { html += '</ul>'; inUl = false; }
+            if (inUl) {
+              html += "</ul>";
+              inUl = false;
+            }
             continue;
           }
           if (/^## /.test(line)) {
-            if (inUl) { html += '</ul>'; inUl = false; }
+            if (inUl) {
+              html += "</ul>";
+              inUl = false;
+            }
             html += `<h2>${inlineMd(line.slice(3))}</h2>`;
           } else if (/^#{1,3} /.test(line)) {
-            if (inUl) { html += '</ul>'; inUl = false; }
-            html += `<h3>${inlineMd(line.replace(/^#{1,3} /, ''))}</h3>`;
+            if (inUl) {
+              html += "</ul>";
+              inUl = false;
+            }
+            html += `<h3>${inlineMd(line.replace(/^#{1,3} /, ""))}</h3>`;
           } else if (/^[-*] /.test(line)) {
-            if (!inUl) { html += '<ul>'; inUl = true; }
+            if (!inUl) {
+              html += "<ul>";
+              inUl = true;
+            }
             html += `<li>${inlineMd(line.slice(2))}</li>`;
           } else {
-            if (inUl) { html += '</ul>'; inUl = false; }
+            if (inUl) {
+              html += "</ul>";
+              inUl = false;
+            }
             html += `<p>${inlineMd(line)}</p>`;
           }
         }
-        if (inUl) html += '</ul>';
-        return html || '<p>—</p>';
+        if (inUl) html += "</ul>";
+        return html || "<p>—</p>";
       }
 
       // ── Config helpers ────────────────────────────────────
       const CONFIG_LABELS = {
-        'ZUP': 'ЗУП',
-        'BUH': 'Бухгалтерия',
-        'BH':  'Бухгалтерия',
-        'BP':  'Бухгалтерия',
+        ZUP: "ЗУП",
+        BUH: "Бухгалтерия",
+        BH: "Бухгалтерия",
+        BP: "Бухгалтерия",
       };
-      function configLabel(code) { return CONFIG_LABELS[code] ?? code ?? '—'; }
+      function configLabel(code) {
+        return CONFIG_LABELS[code] ?? code ?? "—";
+      }
 
       // ── SVG Icons ─────────────────────────────────────────
       const ICON_PKG = `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -553,15 +710,19 @@
       // ── Render page ────────────────────────────────────────
       function renderPage(key, info, allEntries) {
         const moduleName = parseModuleName(key);
-        const version    = parseVersion(info.version);
-        const typeTag    = configLabel(info.config);
+        const version = parseVersion(info.version);
+        const typeTag = configLabel(info.config);
 
         // Related versions — same module name, sorted by semver descending
         function semverParts(v) {
-          return parseVersion(v.version).replace(/^v/, '').split('.').map(Number);
+          return parseVersion(v.version)
+            .replace(/^v/, "")
+            .split(".")
+            .map(Number);
         }
         function cmpSemver(a, b) {
-          const pa = semverParts(a[1]), pb = semverParts(b[1]);
+          const pa = semverParts(a[1]),
+            pb = semverParts(b[1]);
           for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
             const diff = (pb[i] ?? 0) - (pa[i] ?? 0);
             if (diff !== 0) return diff;
@@ -573,13 +734,15 @@
           .sort(cmpSemver);
 
         // Update header caption & page title
-        document.getElementById('header-caption').textContent = moduleName;
+        document.getElementById("header-caption").textContent = moduleName;
         document.title = `${moduleName} ${version} — Doodocs`;
 
-        const isDownloadTelegram = info.download?.includes('t.me');
-        const downloadLabel = isDownloadTelegram ? 'Открыть в Telegram' : 'Скачать файл (.epf)';
+        const isDownloadTelegram = info.download?.includes("t.me");
+        const downloadLabel = isDownloadTelegram
+          ? "Открыть в Telegram"
+          : "Скачать файл (.epf)";
 
-        const main = document.getElementById('main');
+        const main = document.getElementById("main");
         main.innerHTML = `
           <!-- Breadcrumb -->
           <nav class="breadcrumb animate animate-1">
@@ -598,12 +761,16 @@
               <div class="module-hero-meta">
                 <span class="badge badge-blue">${version}</span>
                 <span class="badge badge-muted">${typeTag}</span>
-                <span class="badge badge-muted">${formatDate(info.date, true)}</span>
+                <span class="badge badge-muted">${formatDate(
+                  info.date,
+                  true
+                )}</span>
               </div>
               <div class="module-hero-actions">
-                ${info.download
-                  ? `<a href="${info.download}" target="_blank" rel="noopener" class="btn btn-primary">${ICON_DL} ${downloadLabel}</a>`
-                  : ''
+                ${
+                  info.download
+                    ? `<a href="${info.download}" target="_blank" rel="noopener" class="btn btn-primary">${ICON_DL} ${downloadLabel}</a>`
+                    : ""
                 }
                 <a href="index.html" class="btn btn-ghost">${ICON_BACK} К реестру</a>
               </div>
@@ -646,18 +813,29 @@
                   </div>
                   <div class="info-row">
                     <span class="info-label">Дата</span>
-                    <span class="info-value" style="font-family:inherit">${formatDate(info.date, true)}</span>
+                    <span class="info-value" style="font-family:inherit">${formatDate(
+                      info.date,
+                      true
+                    )}</span>
                   </div>
-                  ${info.download ? `
+                  ${
+                    info.download
+                      ? `
                   <div class="info-row">
                     <span class="info-label">Формат</span>
-                    <span class="info-value">${info.download.endsWith('.epf') ? '.epf' : 'Telegram'}</span>
-                  </div>` : ''}
+                    <span class="info-value">${
+                      info.download.endsWith(".epf") ? ".epf" : "Telegram"
+                    }</span>
+                  </div>`
+                      : ""
+                  }
                 </div>
               </div>
 
               <!-- Download CTA -->
-              ${info.download ? `
+              ${
+                info.download
+                  ? `
               <div class="download-card">
                 <div>
                   <div class="download-title">Скачать модуль</div>
@@ -666,10 +844,14 @@
                 <a href="${info.download}" target="_blank" rel="noopener" class="btn btn-primary">
                   ${ICON_DL} ${downloadLabel}
                 </a>
-              </div>` : ''}
+              </div>`
+                  : ""
+              }
 
               <!-- Related versions -->
-              ${related.length > 1 ? `
+              ${
+                related.length > 1
+                  ? `
               <div class="card">
                 <div class="card-header">
                   <span class="card-icon">${ICON_HISTORY}</span>
@@ -677,18 +859,28 @@
                 </div>
                 <div class="card-body" style="padding:8px">
                   <div class="related-list">
-                    ${related.map(([k, v]) => {
-                      const ver = parseVersion(v.version);
-                      const isActive = k === key;
-                      return `<a href="module.html?id=${encodeURIComponent(k)}"
-                                 class="related-item${isActive ? ' active' : ''}">
+                    ${related
+                      .map(([k, v]) => {
+                        const ver = parseVersion(v.version);
+                        const isActive = k === key;
+                        return `<a href="module.html?id=${encodeURIComponent(
+                          k
+                        )}"
+                                 class="related-item${
+                                   isActive ? " active" : ""
+                                 }">
                         <span class="related-item-name">${ver}</span>
-                        <span class="related-item-date">${formatDate(v.date)}</span>
+                        <span class="related-item-date">${formatDate(
+                          v.date
+                        )}</span>
                       </a>`;
-                    }).join('')}
+                      })
+                      .join("")}
                   </div>
                 </div>
-              </div>` : ''}
+              </div>`
+                  : ""
+              }
 
             </div>
           </div>
@@ -697,24 +889,27 @@
 
       // ── Init ────────────────────────────────────────────────
       const params = new URLSearchParams(location.search);
-      const id = params.get('id');
+      const id = params.get("id");
 
       if (!id) {
-        location.href = 'index.html';
+        location.href = "index.html";
       } else {
-        fetch('registry.json')
-          .then(r => r.json())
-          .then(data => {
+        fetch(
+          "https://raw.githubusercontent.com/doodocs/doodocs-1c-changelog/main/registry.json?ts=" +
+            Date.now()
+        )
+          .then((r) => r.json())
+          .then((data) => {
             const info = data[id];
             if (!info) {
-              document.getElementById('not-found').style.display = 'block';
+              document.getElementById("not-found").style.display = "block";
               return;
             }
             const allEntries = Object.entries(data);
             renderPage(id, info, allEntries);
           })
           .catch(() => {
-            document.getElementById('not-found').style.display = 'block';
+            document.getElementById("not-found").style.display = "block";
           });
       }
     </script>

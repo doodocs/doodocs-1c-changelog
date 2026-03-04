@@ -13,33 +13,26 @@
     <style>
       /* ── shadcn UI Blue Theme tokens ── */
       :root {
-        --background: 0 0% 100%;
-        --foreground: 222.2 84% 4.9%;
-        --card: 0 0% 100%;
-        --card-foreground: 222.2 84% 4.9%;
-        --primary: 221.2 83.2% 53.3%;
-        --primary-foreground: 210 40% 98%;
-        --secondary: 210 40% 96.1%;
-        --secondary-foreground: 222.2 47.4% 11.2%;
-        --muted: 210 40% 96.1%;
-        --muted-foreground: 215.4 16.3% 46.9%;
-        --accent: 210 40% 96.1%;
-        --border: 214.3 31.8% 91.4%;
-        --ring: 221.2 83.2% 53.3%;
-        --radius: 0.5rem;
+        --background:          0 0% 100%;
+        --foreground:          222.2 84% 4.9%;
+        --card:                0 0% 100%;
+        --card-foreground:     222.2 84% 4.9%;
+        --primary:             221.2 83.2% 53.3%;
+        --primary-foreground:  210 40% 98%;
+        --secondary:           210 40% 96.1%;
+        --secondary-foreground:222.2 47.4% 11.2%;
+        --muted:               210 40% 96.1%;
+        --muted-foreground:    215.4 16.3% 46.9%;
+        --accent:              210 40% 96.1%;
+        --border:              214.3 31.8% 91.4%;
+        --ring:                221.2 83.2% 53.3%;
+        --radius:              0.5rem;
       }
 
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
       body {
-        font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
+        font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         background: hsl(var(--background));
         color: hsl(var(--foreground));
         min-height: 100vh;
@@ -89,9 +82,7 @@
         font-size: 13px;
         color: hsl(var(--muted-foreground));
       }
-      .header-spacer {
-        flex: 1;
-      }
+      .header-spacer { flex: 1; }
       .header-badge {
         display: inline-flex;
         align-items: center;
@@ -110,13 +101,8 @@
         animation: pulse 2s ease-in-out infinite;
       }
       @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.4;
-        }
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
       }
 
       /* ── Main ── */
@@ -127,9 +113,7 @@
       }
 
       /* ── Hero ── */
-      .hero {
-        margin-bottom: 44px;
-      }
+      .hero { margin-bottom: 44px; }
       .hero-pill {
         display: inline-flex;
         align-items: center;
@@ -191,10 +175,7 @@
         letter-spacing: -0.02em;
         color: hsl(var(--foreground));
       }
-      .stat-value.small {
-        font-size: 17px;
-        padding-top: 4px;
-      }
+      .stat-value.small { font-size: 17px; padding-top: 4px; }
 
       /* ── Toolbar ── */
       .toolbar {
@@ -205,9 +186,7 @@
         gap: 10px;
         flex-wrap: wrap;
       }
-      .search-wrap {
-        position: relative;
-      }
+      .search-wrap { position: relative; }
       .search-icon {
         position: absolute;
         left: 10px;
@@ -229,9 +208,7 @@
         width: 260px;
         transition: border-color 0.15s, box-shadow 0.15s;
       }
-      .search-input::placeholder {
-        color: hsl(var(--muted-foreground));
-      }
+      .search-input::placeholder { color: hsl(var(--muted-foreground)); }
       .search-input:focus {
         border-color: hsl(var(--primary));
         box-shadow: 0 0 0 3px hsl(var(--primary) / 0.12);
@@ -273,45 +250,21 @@
         border-bottom: 1px solid hsl(var(--border));
         vertical-align: top;
       }
-      tr:last-child td {
-        border-bottom: none;
-      }
-      tbody tr {
-        transition: background 0.1s;
-      }
-      tbody tr:hover {
-        background: hsl(var(--muted) / 0.45);
-      }
+      tr:last-child td { border-bottom: none; }
+      tbody tr { transition: background 0.1s; }
+      tbody tr:hover { background: hsl(var(--muted) / 0.45); }
 
       /* Row animation */
       @keyframes rowIn {
-        from {
-          opacity: 0;
-          transform: translateY(6px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(6px); }
+        to   { opacity: 1; transform: translateY(0); }
       }
-      tbody tr {
-        animation: rowIn 0.28s ease both;
-      }
-      tbody tr:nth-child(1) {
-        animation-delay: 0.04s;
-      }
-      tbody tr:nth-child(2) {
-        animation-delay: 0.09s;
-      }
-      tbody tr:nth-child(3) {
-        animation-delay: 0.14s;
-      }
-      tbody tr:nth-child(4) {
-        animation-delay: 0.19s;
-      }
-      tbody tr:nth-child(5) {
-        animation-delay: 0.24s;
-      }
+      tbody tr { animation: rowIn 0.28s ease both; }
+      tbody tr:nth-child(1) { animation-delay: 0.04s; }
+      tbody tr:nth-child(2) { animation-delay: 0.09s; }
+      tbody tr:nth-child(3) { animation-delay: 0.14s; }
+      tbody tr:nth-child(4) { animation-delay: 0.19s; }
+      tbody tr:nth-child(5) { animation-delay: 0.24s; }
 
       /* ── Module cell ── */
       .mod-cell {
@@ -337,13 +290,11 @@
         line-height: 1.3;
         transition: color 0.15s;
       }
-      .mod-cell:hover .mod-name-link {
-        color: hsl(var(--primary));
-      }
+      .mod-cell:hover .mod-name-link { color: hsl(var(--primary)); }
       .mod-sub {
         font-size: 11.5px;
         color: hsl(var(--muted-foreground));
-        font-family: "Geist Mono", monospace;
+        font-family: 'Geist Mono', monospace;
         margin-top: 1px;
       }
 
@@ -358,7 +309,7 @@
         padding: 2px 10px;
         font-size: 12px;
         font-weight: 600;
-        font-family: "Geist Mono", monospace;
+        font-family: 'Geist Mono', monospace;
         white-space: nowrap;
       }
 
@@ -371,22 +322,13 @@
         font-size: 12px;
         font-weight: 600;
         white-space: nowrap;
-        font-family: "Geist Mono", monospace;
+        font-family: 'Geist Mono', monospace;
       }
-      .config-badge-ZUP {
-        background: hsl(262 80% 95%);
-        color: hsl(262 60% 45%);
-      }
+      .config-badge-ZUP  { background: hsl(262 80% 95%); color: hsl(262 60% 45%); }
       .config-badge-BUH,
       .config-badge-BH,
-      .config-badge-BP {
-        background: hsl(142 60% 92%);
-        color: hsl(142 60% 30%);
-      }
-      .config-badge-default {
-        background: hsl(var(--muted));
-        color: hsl(var(--muted-foreground));
-      }
+      .config-badge-BP   { background: hsl(142 60% 92%); color: hsl(142 60% 30%); }
+      .config-badge-default { background: hsl(var(--muted)); color: hsl(var(--muted-foreground)); }
 
       /* ── Filter pills ── */
       .filter-pills {
@@ -412,10 +354,7 @@
         transition: all 0.15s;
         white-space: nowrap;
       }
-      .filter-pill:hover {
-        background: hsl(var(--muted));
-        color: hsl(var(--foreground));
-      }
+      .filter-pill:hover { background: hsl(var(--muted)); color: hsl(var(--foreground)); }
       .filter-pill.active {
         background: hsl(var(--primary));
         border-color: hsl(var(--primary));
@@ -442,28 +381,16 @@
       }
 
       /* ── Description ── */
-      .desc-cell {
-        max-width: 380px;
-      }
+      .desc-cell { max-width: 380px; }
       .desc-text {
         font-size: 13px;
         color: hsl(var(--muted-foreground));
         line-height: 1.55;
       }
-      .desc-text strong {
-        color: hsl(var(--foreground));
-        font-weight: 600;
-      }
-      .desc-text p {
-        margin-bottom: 3px;
-      }
-      .desc-text ul {
-        margin-left: 14px;
-        margin-top: 2px;
-      }
-      .desc-text li {
-        margin-bottom: 2px;
-      }
+      .desc-text strong { color: hsl(var(--foreground)); font-weight: 600; }
+      .desc-text p { margin-bottom: 3px; }
+      .desc-text ul { margin-left: 14px; margin-top: 2px; }
+      .desc-text li { margin-bottom: 2px; }
       .desc-text .md-h {
         font-size: 11px;
         font-weight: 700;
@@ -472,11 +399,9 @@
         color: hsl(var(--foreground));
         margin: 6px 0 3px;
       }
-      .desc-text .md-h:first-child {
-        margin-top: 0;
-      }
+      .desc-text .md-h:first-child { margin-top: 0; }
       .desc-text code {
-        font-family: "Geist Mono", monospace;
+        font-family: 'Geist Mono', monospace;
         font-size: 11.5px;
         background: hsl(var(--muted));
         padding: 1px 4px;
@@ -485,53 +410,23 @@
 
       /* ── Responsive: tablet — скрыть колонку "Изменения" ── */
       @media (max-width: 900px) {
-        th:nth-child(5),
-        td:nth-child(5) {
-          display: none;
-        }
+        th:nth-child(5), td:nth-child(5) { display: none; }
       }
 
       /* ── Responsive: mobile — card layout ── */
       @media (max-width: 640px) {
         /* Layout */
-        main {
-          padding: 28px 16px 56px;
-        }
-        .hero {
-          margin-bottom: 28px;
-        }
-        .hero h1 {
-          font-size: 22px;
-        }
-        .hero p {
-          font-size: 14px;
-        }
-        .toolbar {
-          flex-direction: column;
-          align-items: stretch;
-          gap: 8px;
-        }
-        .search-input {
-          width: 100%;
-        }
-        .filter-pills {
-          justify-content: flex-start;
-        }
-        .stats {
-          gap: 8px;
-        }
-        .stat-card {
-          min-width: 0;
-          flex: 1;
-          padding: 12px 14px;
-        }
-        .stat-value {
-          font-size: 20px;
-        }
-        .stat-value.small {
-          font-size: 14px;
-          padding-top: 2px;
-        }
+        main { padding: 28px 16px 56px; }
+        .hero { margin-bottom: 28px; }
+        .hero h1 { font-size: 22px; }
+        .hero p { font-size: 14px; }
+        .toolbar { flex-direction: column; align-items: stretch; gap: 8px; }
+        .search-input { width: 100%; }
+        .filter-pills { justify-content: flex-start; }
+        .stats { gap: 8px; }
+        .stat-card { min-width: 0; flex: 1; padding: 12px 14px; }
+        .stat-value { font-size: 20px; }
+        .stat-value.small { font-size: 14px; padding-top: 2px; }
 
         /* Table → Card list */
         .table-wrap {
@@ -540,18 +435,9 @@
           border-radius: 0;
           overflow: visible;
         }
-        table,
-        tbody {
-          display: block;
-        }
-        thead {
-          display: none;
-        }
-        tbody {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-        }
+        table, tbody { display: block; }
+        thead { display: none; }
+        tbody { display: flex; flex-direction: column; gap: 10px; }
 
         tbody tr {
           display: block;
@@ -562,26 +448,13 @@
           animation: rowIn 0.28s ease both;
         }
         /* reset table-specific overrides */
-        tbody tr:hover {
-          background: hsl(var(--card));
-        }
-        td {
-          display: block;
-          padding: 0;
-          border-bottom: none;
-        }
+        tbody tr:hover { background: hsl(var(--card)); }
+        td { display: block; padding: 0; border-bottom: none; }
 
         /* Module name row */
-        td:nth-child(1) {
-          margin-bottom: 10px;
-        }
-        td:nth-child(1) .mod-cell {
-          gap: 8px;
-        }
-        td:nth-child(1) .mod-icon {
-          width: 30px;
-          height: 30px;
-        }
+        td:nth-child(1) { margin-bottom: 10px; }
+        td:nth-child(1) .mod-cell { gap: 8px; }
+        td:nth-child(1) .mod-icon { width: 30px; height: 30px; }
 
         /* Config + Version + Date — inline on one line */
         td:nth-child(2),
@@ -594,14 +467,10 @@
         }
 
         /* Description — hidden */
-        td:nth-child(5) {
-          display: none;
-        }
+        td:nth-child(5) { display: none; }
 
         /* Download — full-width button */
-        td:nth-child(6) {
-          display: block;
-        }
+        td:nth-child(6) { display: block; }
         td:nth-child(6) a.btn-dl {
           width: 100%;
           justify-content: center;
@@ -631,10 +500,7 @@
         box-shadow: 0 3px 10px hsl(var(--primary) / 0.35);
         transform: translateY(-1px);
       }
-      .btn-dl:active {
-        transform: translateY(0);
-        box-shadow: none;
-      }
+      .btn-dl:active { transform: translateY(0); box-shadow: none; }
 
       /* ── Empty state ── */
       .empty-state {
@@ -642,13 +508,8 @@
         text-align: center;
         color: hsl(var(--muted-foreground));
       }
-      .empty-icon {
-        font-size: 30px;
-        margin-bottom: 10px;
-      }
-      .empty-text {
-        font-size: 14px;
-      }
+      .empty-icon { font-size: 30px; margin-bottom: 10px; }
+      .empty-text { font-size: 14px; }
 
       /* ── Footer ── */
       footer {
@@ -662,30 +523,17 @@
         color: hsl(var(--primary));
         text-decoration: none;
       }
-      footer a:hover {
-        text-decoration: underline;
-      }
+      footer a:hover { text-decoration: underline; }
     </style>
   </head>
   <body>
+
     <!-- ── Header ── -->
     <header>
       <div class="header-inner">
         <div class="logo-mark">
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            stroke-width="2.2"
-          >
-            <path d="m7.5 4.27 9 5.15" />
-            <path
-              d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"
-            />
-            <path d="m3.3 7 8.7 5 8.7-5" />
-            <path d="M12 22V12" />
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2">
+            <path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>
           </svg>
         </div>
         <span class="logo-text">Doodocs</span>
@@ -701,26 +549,15 @@
 
     <!-- ── Main ── -->
     <main>
+
       <!-- Hero -->
       <div class="hero">
         <div class="hero-pill">
-          <svg
-            width="11"
-            height="11"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-          >
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-          </svg>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           Открытый реестр
         </div>
         <h1>Реестр модулей 1С</h1>
-        <p>
-          Публичный каталог расширений и модулей для платформы 1С. Все
-          обновления публикуются через Telegram-канал.
-        </p>
+        <p>Публичный каталог расширений и модулей для платформы 1С. Все обновления публикуются через Telegram-канал.</p>
       </div>
 
       <!-- Stats -->
@@ -729,25 +566,10 @@
       <!-- Toolbar -->
       <div class="toolbar">
         <div class="search-wrap">
-          <svg
-            class="search-icon"
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.35-4.35" />
+          <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
           </svg>
-          <input
-            class="search-input"
-            id="search"
-            type="text"
-            placeholder="Поиск модуля..."
-            autocomplete="off"
-          />
+          <input class="search-input" id="search" type="text" placeholder="Поиск модуля..." autocomplete="off" />
         </div>
         <div class="filter-pills" id="filter-pills"></div>
         <span class="result-count" id="count"></span>
@@ -769,33 +591,34 @@
           <tbody id="tbody"></tbody>
         </table>
       </div>
+
     </main>
 
     <!-- ── Footer ── -->
-    <footer>© 2026 Doodocs &mdash; Публичный реестр модулей 1С</footer>
+    <footer>
+      © 2026 Doodocs &mdash; Публичный реестр модулей 1С
+    </footer>
 
     <script>
       // ── Helpers ──────────────────────────────────────────
       const CONFIG_LABELS = {
-        ZUP: "ЗУП",
-        BUH: "Бухгалтерия",
-        BH: "Бухгалтерия",
-        BP: "Бухгалтерия",
+        'ZUP': 'ЗУП',
+        'BUH': 'Бухгалтерия',
+        'BH':  'Бухгалтерия',
+        'BP':  'Бухгалтерия',
       };
-      function configLabel(code) {
-        return CONFIG_LABELS[code] ?? code ?? "—";
-      }
+      function configLabel(code) { return CONFIG_LABELS[code] ?? code ?? '—'; }
       function configBadgeClass(code) {
-        if (!code) return "config-badge-default";
-        if (code === "ZUP") return "config-badge-ZUP";
-        if (["BUH", "BH", "BP"].includes(code)) return "config-badge-BUH";
-        return "config-badge-default";
+        if (!code) return 'config-badge-default';
+        if (code === 'ZUP') return 'config-badge-ZUP';
+        if (['BUH','BH','BP'].includes(code)) return 'config-badge-BUH';
+        return 'config-badge-default';
       }
 
       function parseVersion(v) {
-        if (!v) return "—";
-        const p = v.split("/");
-        return p.length > 1 ? "v" + p[1] : v;
+        if (!v) return '—';
+        const p = v.split('/');
+        return p.length > 1 ? 'v' + p[1] : v;
       }
 
       function parseModuleName(key) {
@@ -804,66 +627,49 @@
       }
 
       function formatDate(d) {
-        if (!d) return "—";
+        if (!d) return '—';
         const dt = new Date(d);
-        return dt.toLocaleString("ru-RU", {
-          day: "2-digit",
-          month: "2-digit",
-          year: "numeric",
-          hour: "2-digit",
-          minute: "2-digit",
+        return dt.toLocaleString('ru-RU', {
+          day: '2-digit', month: '2-digit', year: 'numeric',
+          hour: '2-digit', minute: '2-digit'
         });
       }
 
       function inlineMd(s) {
         return s
-          .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-          .replace(/`(.+?)`/g, "<code>$1</code>");
+          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+          .replace(/`(.+?)`/g, '<code>$1</code>');
       }
 
       function mdToHtml(text) {
-        if (!text) return "—";
-        text = text.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
-        const lines = text.split("\n");
-        let html = "";
+        if (!text) return '—';
+        text = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+        const lines = text.split('\n');
+        let html = '';
         let inUl = false;
 
         for (const raw of lines) {
           const line = raw.trim();
           if (!line) {
-            if (inUl) {
-              html += "</ul>";
-              inUl = false;
-            }
+            if (inUl) { html += '</ul>'; inUl = false; }
             continue;
           }
           if (/^#{1,3} /.test(line)) {
-            if (inUl) {
-              html += "</ul>";
-              inUl = false;
-            }
-            html += `<div class="md-h">${inlineMd(
-              line.replace(/^#{1,3} /, "")
-            )}</div>`;
+            if (inUl) { html += '</ul>'; inUl = false; }
+            html += `<div class="md-h">${inlineMd(line.replace(/^#{1,3} /, ''))}</div>`;
           } else if (/^[-*] /.test(line)) {
             // Strip "by @user in https://..." from GitHub PR list items
-            let item = line.slice(2).replace(/ by @\S+ in https?:\/\/\S+/g, "");
-            if (!inUl) {
-              html += "<ul>";
-              inUl = true;
-            }
+            let item = line.slice(2).replace(/ by @\S+ in https?:\/\/\S+/g, '');
+            if (!inUl) { html += '<ul>'; inUl = true; }
             html += `<li>${inlineMd(item)}</li>`;
           } else {
-            if (inUl) {
-              html += "</ul>";
-              inUl = false;
-            }
+            if (inUl) { html += '</ul>'; inUl = false; }
             if (/^\*\*Full Changelog\*\*/.test(line)) continue;
             html += `<p>${inlineMd(line)}</p>`;
           }
         }
-        if (inUl) html += "</ul>";
-        return html || "—";
+        if (inUl) html += '</ul>';
+        return html || '—';
       }
 
       // ── Icons ─────────────────────────────────────────────
@@ -884,13 +690,10 @@
       let ALL = [];
 
       function render(entries) {
-        const tbody = document.getElementById("tbody");
-        const countEl = document.getElementById("count");
-        tbody.innerHTML = "";
-        countEl.textContent =
-          entries.length +
-          " " +
-          plural(entries.length, "запись", "записи", "записей");
+        const tbody = document.getElementById('tbody');
+        const countEl = document.getElementById('count');
+        tbody.innerHTML = '';
+        countEl.textContent = entries.length + ' ' + plural(entries.length, 'запись', 'записи', 'записей');
 
         if (!entries.length) {
           tbody.innerHTML = `
@@ -904,17 +707,17 @@
         }
 
         entries.forEach(([key, info]) => {
-          const name = parseModuleName(key);
-          const cfg = info.config ?? "";
+          const name    = parseModuleName(key);
+          const cfg     = info.config ?? '';
           const version = parseVersion(info.version);
-          const date = formatDate(info.date);
-          const desc = mdToHtml(info.description);
-          const dlBtn = info.download
+          const date    = formatDate(info.date);
+          const desc    = mdToHtml(info.description);
+          const dlBtn   = info.download
             ? `<a href="${info.download}" target="_blank" rel="noopener" class="btn-dl">${ICON_DL} Скачать</a>`
             : '<span style="color:hsl(215.4 16.3% 46.9%)">—</span>';
 
           const moduleUrl = `module.html?id=${encodeURIComponent(key)}`;
-          const tr = document.createElement("tr");
+          const tr = document.createElement('tr');
           tr.innerHTML = `
             <td>
               <a href="${moduleUrl}" class="mod-cell" style="text-decoration:none;color:inherit">
@@ -922,9 +725,7 @@
                 <div class="mod-name mod-name-link">${name}</div>
               </a>
             </td>
-            <td><span class="config-badge ${configBadgeClass(
-              cfg
-            )}">${configLabel(cfg)}</span></td>
+            <td><span class="config-badge ${configBadgeClass(cfg)}">${configLabel(cfg)}</span></td>
             <td><a href="${moduleUrl}" style="text-decoration:none"><span class="version-badge">${version}</span></a></td>
             <td><span class="date-cell">${date}</span></td>
             <td class="desc-cell"><div class="desc-text">${desc}</div></td>
@@ -935,28 +736,22 @@
       }
 
       function plural(n, one, few, many) {
-        const mod10 = n % 10,
-          mod100 = n % 100;
+        const mod10 = n % 10, mod100 = n % 100;
         if (mod10 === 1 && mod100 !== 11) return one;
-        if (mod10 >= 2 && mod10 <= 4 && (mod100 < 10 || mod100 >= 20))
-          return few;
+        if (mod10 >= 2 && mod10 <= 4 && (mod100 < 10 || mod100 >= 20)) return few;
         return many;
       }
 
       // ── Fetch & init ────────────────────────────────────────
-      fetch(
-        "https://raw.githubusercontent.com/doodocs/doodocs-1c-changelog/main/registry.json?ts=" +
-          Date.now()
-      )
-        .then((r) => r.json())
-        .then((data) => {
+      fetch('registry.json')
+        .then(r => r.json())
+        .then(data => {
           ALL = Object.entries(data).reverse();
 
           // Stats
-          const uniqueNames = new Set(ALL.map(([k]) => parseModuleName(k)))
-            .size;
-          const latestDate = ALL[0]?.[1]?.date ?? "";
-          document.getElementById("stats").innerHTML = `
+          const uniqueNames = new Set(ALL.map(([k]) => parseModuleName(k))).size;
+          const latestDate  = ALL[0]?.[1]?.date ?? '';
+          document.getElementById('stats').innerHTML = `
             <div class="stat-card">
               <div class="stat-label">Версий</div>
               <div class="stat-value">${ALL.length}</div>
@@ -972,35 +767,25 @@
           `;
 
           // ── Build filter pills ───────────────────────────
-          let activeConfig = "";
-          const configs = [
-            ...new Set(ALL.map(([, v]) => v.config).filter(Boolean)),
-          ];
-          const pillsEl = document.getElementById("filter-pills");
+          let activeConfig = '';
+          const configs = [...new Set(ALL.map(([, v]) => v.config).filter(Boolean))];
+          const pillsEl = document.getElementById('filter-pills');
 
           function countForConfig(cfg) {
-            return cfg
-              ? ALL.filter(([, v]) => v.config === cfg).length
-              : ALL.length;
+            return cfg ? ALL.filter(([, v]) => v.config === cfg).length : ALL.length;
           }
 
           function renderPills() {
-            pillsEl.innerHTML = [
-              ["", "Все"],
-              ...configs.map((c) => [c, configLabel(c)]),
-            ]
+            pillsEl.innerHTML = [['', 'Все'], ...configs.map(c => [c, configLabel(c)])]
               .map(([code, label]) => {
                 const isActive = activeConfig === code;
-                return `<button class="filter-pill${
-                  isActive ? " active" : ""
-                }" data-config="${code}">
+                return `<button class="filter-pill${isActive ? ' active' : ''}" data-config="${code}">
                   ${label}
                   <span class="pill-count">${countForConfig(code)}</span>
                 </button>`;
-              })
-              .join("");
-            pillsEl.querySelectorAll(".filter-pill").forEach((btn) => {
-              btn.addEventListener("click", () => {
+              }).join('');
+            pillsEl.querySelectorAll('.filter-pill').forEach(btn => {
+              btn.addEventListener('click', () => {
                 activeConfig = btn.dataset.config;
                 renderPills();
                 applyFilters();
@@ -1009,16 +794,10 @@
           }
 
           function applyFilters() {
-            const q = document
-              .getElementById("search")
-              .value.toLowerCase()
-              .trim();
+            const q = document.getElementById('search').value.toLowerCase().trim();
             const filtered = ALL.filter(([k, v]) => {
-              const matchCfg = !activeConfig || v.config === activeConfig;
-              const matchSearch =
-                !q ||
-                k.toLowerCase().includes(q) ||
-                (v.description ?? "").toLowerCase().includes(q);
+              const matchCfg    = !activeConfig || v.config === activeConfig;
+              const matchSearch = !q || k.toLowerCase().includes(q) || (v.description ?? '').toLowerCase().includes(q);
               return matchCfg && matchSearch;
             });
             render(filtered);
@@ -1027,20 +806,17 @@
           renderPills();
           render(ALL);
 
-          document
-            .getElementById("search")
-            .addEventListener("input", applyFilters);
+          document.getElementById('search').addEventListener('input', applyFilters);
         })
-        .catch((err) => {
-          const isFile = location.protocol === "file:";
-          document.getElementById("tbody").innerHTML = `
+        .catch(err => {
+          const isFile = location.protocol === 'file:';
+          document.getElementById('tbody').innerHTML = `
             <tr><td colspan="6">
               <div class="empty-state">
                 <div class="empty-icon">⚠️</div>
                 <div class="empty-text" style="max-width:420px;margin:0 auto">
-                  ${
-                    isFile
-                      ? `Файл открыт напрямую — браузер блокирует загрузку данных.<br><br>
+                  ${isFile
+                    ? `Файл открыт напрямую — браузер блокирует загрузку данных.<br><br>
                        Запустите локальный сервер:<br>
                        <code style="background:hsl(var(--muted));padding:4px 8px;border-radius:4px;font-size:12px;display:inline-block;margin-top:6px">
                          python3 -m http.server 8080
@@ -1048,12 +824,12 @@
                        <span style="font-size:12px;margin-top:6px;display:inline-block">
                          Затем откройте <a href="http://localhost:8080" style="color:hsl(var(--primary))">localhost:8080</a>
                        </span>`
-                      : "Не удалось загрузить реестр"
+                    : 'Не удалось загрузить реестр'
                   }
                 </div>
               </div>
             </td></tr>`;
-          console.error("[registry]", err);
+          console.error('[registry]', err);
         });
     </script>
   </body>

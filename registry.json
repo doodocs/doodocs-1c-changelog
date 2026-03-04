@@ -33,12 +33,5 @@
     "config": "BUH",
     "description": "**Добавлен модуль интеграции для Бухгалтерии**",
     "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii-BUH-1.0.0.0/ModulIntegrazii-BUH-1.0.0.0.epf"
-  },
-  "ModulIntegrazii-BUH v9.9.9.9": {
-    "version": "ModulIntegrazii-BUH/9.9.9.9",
-    "date": "2026-03-04T12:26:06Z",
-    "config": "BUH",
-    "description": "**Добавлен модуль интеграции для Бухгалтерии**",
-    "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii-BUH-1.0.0.0/ModulIntegrazii-BUH-1.0.0.0.epf"
   }
 }

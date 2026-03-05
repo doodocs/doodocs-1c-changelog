@@ -33,5 +33,12 @@
     "config": "BUH",
     "description": "**Добавлен модуль интеграции для Бухгалтерии**",
     "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii-BUH-1.0.0.0/ModulIntegrazii-BUH-1.0.0.0.epf"
+  },
+  "ModulIntegrazii v1.3.4.0": {
+    "version": "ModulIntegrazii/1.3.4.0",
+    "date": "2026-03-05T09:44:06Z",
+    "config": "ModulIntegrazii",
+    "description": "Исправлена проблема с чувствительностью регистра заголовка \"Content-Type\"\r\n",
+    "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii-1.3.4.0/ModulIntegrazii-1.3.4.0.epf"
   }
 }

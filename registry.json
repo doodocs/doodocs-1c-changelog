@@ -54,5 +54,12 @@
     "config": "ZUP",
     "description": "## УФ_СоответствияПолейДокумента\r\n\r\n- Экспорт и импорт настроек в JSON с валидацией и fuzzy-matching типов портала\r\n- Дефолтная конфигурация при первом открытии",
     "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii-ZUP-1.4.0.0/ModulIntegrazii-ZUP-1.4.0.0.epf"
+  },
+  "ModulIntegrazii-BUH v1.0.1.0": {
+    "version": "ModulIntegrazii-BUH/1.0.1.0",
+    "date": "2026-03-11T16:01:16Z",
+    "config": "BUH",
+    "description": "Исправлено регламентное задание",
+    "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii-BUH-1.0.1.0/ModulIntegrazii-BUH-1.0.1.0.epf"
   }
 }

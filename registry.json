@@ -47,5 +47,12 @@
     "config": "ZUP",
     "description": "## УФ_ОсновнаяФорма\r\n\r\n- Фикс: при автоподборе типа документа («Прикрепить») поле «Тип документа» остаётся пустым, если портал не авторизован — раньше показывался raw ID из соответствия\r\n## УФ_СоответствияТиповДокумента \r\n\r\n- При первом открытии автоматически подбирает типы портала по ключевым словам в названии (fuzzy-matching) и сохраняет результат — специалисту не нужно заполнять с нуля\r\n- Экспорт _(кнопка)_ настроек в JSON-файл \r\n- Импорт _(кнопка)_ настроек из JSON с валидацией типов портала: точное совпадение по ID → по названию → fuzzy-matching; при несовпадении — предупреждение",
     "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulOtpravki-ZUP-1.6.0.0/ModulOtpravki-ZUP-1.6.0.0.epf"
+  },
+  "ModulIntegrazii-ZUP v1.4.0.0": {
+    "version": "ModulIntegrazii-ZUP/1.4.0.0",
+    "date": "2026-03-11T11:59:20Z",
+    "config": "ZUP",
+    "description": "## УФ_СоответствияПолейДокумента\r\n\r\n- Экспорт и импорт настроек в JSON с валидацией и fuzzy-matching типов портала\r\n- Дефолтная конфигурация при первом открытии",
+    "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii-ZUP-1.4.0.0/ModulIntegrazii-ZUP-1.4.0.0.epf"
   }
 }

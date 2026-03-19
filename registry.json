@@ -68,5 +68,12 @@
     "config": "ZUP",
     "description": "### Добавлено:\r\n- Привилегированный режим перед запросами Регламентного задания",
     "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii-ZUP-1.4.1.0/ModulIntegrazii-ZUP-1.4.1.0.epf"
+  },
+  "ModulIntegrazii-ZUP v1.5.0.0": {
+    "version": "ModulIntegrazii-ZUP/1.5.0.0",
+    "date": "2026-03-19T12:25:58Z",
+    "config": "ZUP",
+    "description": "### Добавлено:\r\n- \"Изменение графика работы списком\" в список для создания 1С документов\r\n",
+    "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii-ZUP-1.5.0.0/ModulIntegrazii-ZUP-1.5.0.0.epf"
   }
 }

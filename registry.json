@@ -103,5 +103,12 @@
     "config": "BUH",
     "description": "## Исправлено: \r\n- При записи и проведении документа, созданного из заявления Doodocs, больше не появляется ошибка «Итератор для значения не определен».\r\n",
     "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii-BUH-1.0.2.0/ModulIntegrazii-BUH-1.0.2.0.epf"
+  },
+  "ModulOtpravki-BUH v1.1.1.0": {
+    "version": "ModulOtpravki-BUH/1.1.1.0",
+    "date": "2026-04-14T08:12:16Z",
+    "config": "BUH",
+    "description": "## Исправлено:\r\n- Ошибка отправки сотрудников из 1С:Бухгалтерии, развёрнутой в облаке (1С:Фреш) и при работе через веб-клиент.\r\n\r\n",
+    "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulOtpravki-BUH-1.1.1.0/ModulOtpravki-BUH-1.1.1.0.epf"
   }
 }

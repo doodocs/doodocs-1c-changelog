@@ -124,5 +124,12 @@
     "config": "BUH",
     "description": "## Исправлено:\r\n- Ошибка при создании документа «Увольнение из организаций» из заявления. В некоторых случаях документ не создавался и выдавалась ошибка — теперь документ создаётся корректно, а дата увольнения и основание подставляются автоматически, если эти сведения есть в заявлении.\r\n\r\n",
     "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii-BUH-1.0.3.0/ModulIntegrazii-BUH-1.0.3.0.epf"
+  },
+  "ModulPriema-ZUP v1.3.1.0": {
+    "version": "ModulPriema-ZUP/1.3.1.0",
+    "date": "2026-04-21T06:05:59Z",
+    "config": "ZUP",
+    "description": "## Исправлено:\r\n- Устранена ошибка создания сотрудника при закрытом периоде в 1С, из-за которой не удавалось создать сотрудника в 1С:ЗУП, если у кандидата в анкете было указано семейное положение с датой ранее установленной в системе «даты запрета изменения».\r\n\r\n",
+    "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulPriema-ZUP-1.3.1.0/ModulPriema-ZUP-1.3.1.0.epf"
   }
 }

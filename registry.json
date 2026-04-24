@@ -159,5 +159,12 @@
     "config": "BUH",
     "description": "## Исправлено: \r\n• При записи и проведении документа, созданного из заявления Doodocs, больше не появляется ошибка «Итератор для значения не определен».",
     "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulPriema-BUH-1.0.1.0/ModulPriema-BUH-1.0.1.0.epf"
+  },
+  "ModulIntegrazii-BUH v1.0.5.0": {
+    "version": "ModulIntegrazii-BUH/1.0.5.0",
+    "date": "2026-04-24T10:35:32Z",
+    "config": "BUH",
+    "description": "Теперь для Бухгалтерии поддерживается веб-клиент 1С.",
+    "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii-BUH-1.0.5.0/ModulIntegrazii-BUH-1.0.5.0.epf"
   }
 }

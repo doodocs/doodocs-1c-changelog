@@ -166,5 +166,12 @@
     "config": "BUH",
     "description": "Теперь для Бухгалтерии поддерживается веб-клиент 1С.",
     "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii-BUH-1.0.5.0/ModulIntegrazii-BUH-1.0.5.0.epf"
+  },
+  "ModulPriema-BUH v1.0.2.0": {
+    "version": "ModulPriema-BUH/1.0.2.0",
+    "date": "2026-04-24T10:36:45Z",
+    "config": "BUH",
+    "description": "Теперь поддерживается веб-клиент 1С.",
+    "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulPriema-BUH-1.0.2.0/ModulPriema-BUH-1.0.2.0.epf"
   }
 }

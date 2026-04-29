@@ -215,5 +215,12 @@
     "config": "ZUP",
     "description": "## Что нового:\r\n- Кадровые данные сотрудников теперь можно получать на любую заданную дату, а не только на текущую.\r\n- Добавлена выгрузка табельных номеров в стандартном формате 1С:ЗУП.\r\n- Повышена надёжность выгрузки за счёт перехода на штатные механизмы конфигурации.\r\n",
     "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii-ZUP-1.5.2.1/ModulIntegrazii-ZUP-1.5.2.1.epf"
+  },
+  "ModulOtpravki-ZUP v1.7.2.2": {
+    "version": "ModulOtpravki-ZUP/1.7.2.2",
+    "date": "2026-04-29T12:04:13Z",
+    "config": "ZUP",
+    "description": "## Что нового:\r\n- Кадровые данные сотрудников теперь можно получать на любую заданную дату, а не только на текущую.\r\n- Добавлена выгрузка табельных номеров в стандартном формате 1С:ЗУП.\r\n- Повышена надёжность выгрузки за счёт перехода на штатные механизмы конфигурации.",
+    "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulOtpravki-ZUP-1.7.2.2/ModulOtpravki-ZUP-1.7.2.2.epf"
   }
 }

@@ -243,5 +243,12 @@
     "config": "BUH",
     "description": "## Что добавлено: \r\n- Поддержка прокси сервера",
     "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulPriema-BUH-1.1.0.0/ModulPriema-BUH-1.1.0.0.epf"
+  },
+  "ModulOtpravki-ZUP v1.8.0.0": {
+    "version": "ModulOtpravki-ZUP/1.8.0.0",
+    "date": "2026-05-13T12:05:40Z",
+    "config": "ZUP",
+    "description": "## Что добавлено:\r\n- Поддержка прокси сервера",
+    "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulOtpravki-ZUP-1.8.0.0/ModulOtpravki-ZUP-1.8.0.0.epf"
   }
 }

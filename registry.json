@@ -229,5 +229,12 @@
     "config": "ZUP",
     "description": "## Исправлено:\r\n- Список выбора Организации",
     "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulPriema-ZUP-1.3.3.0/ModulPriema-ZUP-1.3.3.0.epf"
+  },
+  "ModulPriema-ZUP v1.4.0.0": {
+    "version": "ModulPriema-ZUP/1.4.0.0",
+    "date": "2026-05-13T12:02:27Z",
+    "config": "ZUP",
+    "description": "## Что добавлено: \r\n- Поддержка проски сервера",
+    "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulPriema-ZUP-1.4.0.0/ModulPriema-ZUP-1.4.0.0.epf"
   }
 }

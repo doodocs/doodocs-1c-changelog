@@ -285,5 +285,12 @@
     "config": "ZUP",
     "description": "## Исправлено: \r\n- Дублирование сотрудников при отправке кандидата из модуля приема в 1С ЗУП.\r\n- Выбор организации в модуле приема: поле снова работает как выбор организации, а не как текстовое поле.",
     "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulPriema-ZUP-1.4.1.0/ModulPriema-ZUP-1.4.1.0.epf"
+  },
+  "ModulIntegrazii-BUH v1.2.0.0": {
+    "version": "ModulIntegrazii-BUH/1.2.0.0",
+    "date": "2026-05-20T06:25:36Z",
+    "config": "BUH",
+    "description": "## Что сделано:\r\n - Для заявлений в БП добавлены типы документов 1С:\r\n     - Прием на работу\r\n     - Увольнение\r\n     - Отпуск\r\n     - Кадровое перемещение/перевод\r\n     - Командировка\r\n - Добавлено автодобавление остальных кадровых документов из журнала УчетКадровОрганизаций.\r\n - Добавлена защита от дублей и отсутствующих в конфигурации типов.",
+    "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii-BUH-1.2.0.0/ModulIntegrazii-BUH-1.2.0.0.epf"
   }
 }

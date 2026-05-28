@@ -320,5 +320,12 @@
     "config": "BUH",
     "description": " - Исправлено создание документа «Кадровый перевод».\r\n - Обновлена логика получения данных физических лиц.\r\n",
     "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii-BUH-1.2.1.0/ModulIntegrazii-BUH-1.2.1.0.epf"
+  },
+  "ModulOtpravki-BUH v1.2.1.0": {
+    "version": "ModulOtpravki-BUH/1.2.1.0",
+    "date": "2026-05-28T08:11:49Z",
+    "config": "BUH",
+    "description": " - Добавлена обработка представления места рождения физического лица перед отправкой данных.",
+    "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulOtpravki-BUH-1.2.1.0/ModulOtpravki-BUH-1.2.1.0.epf"
   }
 }

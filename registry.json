@@ -334,5 +334,12 @@
     "config": "ZUP",
     "description": "- Исправлен функционал импорта соответствия типов.",
     "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulOtpravki-ZUP-1.8.4.0/ModulOtpravki-ZUP-1.8.4.0.epf"
+  },
+  "ModulOtpravki-ZUP v1.9.0.0": {
+    "version": "ModulOtpravki-ZUP/1.9.0.0",
+    "date": "2026-05-29T10:50:23Z",
+    "config": "ZUP",
+    "description": "## Изменения:\r\n- Добавлена пакетная отправка расчетных листков из 1С в Doodocs HR.\r\n\r\n- Теперь расчетные листки отправляются группами, а не по одному, что сокращает время массовой отправки и снижает вероятность ошибок при большом количестве сотрудников.\r\n\r\n- Также доработана обработка повторной отправки: система не создает дубликаты уже отправленных расчетных листков, но при изменении содержимого после перерасчета позволяет отправить новую версию.\r\n",
+    "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulOtpravki-ZUP-1.9.0.0/ModulOtpravki-ZUP-1.9.0.0.epf"
   }
 }

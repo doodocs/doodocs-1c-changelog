@@ -355,5 +355,12 @@
     "config": "ZUP",
     "description": "- Исправлен расчет количества накопленных дней отпуска при выгрузке сотрудников в Doodocs HR.",
     "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulOtpravki-ZUP-1.9.1.0/ModulOtpravki-ZUP-1.9.1.0.epf"
+  },
+  "ModulIntegrazii-ZUP v1.6.3.0": {
+    "version": "ModulIntegrazii-ZUP/1.6.3.0",
+    "date": "2026-06-08T10:34:30Z",
+    "config": "ZUP",
+    "description": "Изменено: \r\n- Исправление бага",
+    "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii-ZUP-1.6.3.0/ModulIntegrazii-ZUP-1.6.3.0.epf"
   }
 }

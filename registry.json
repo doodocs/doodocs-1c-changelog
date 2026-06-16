@@ -376,5 +376,12 @@
     "config": "ZUP",
     "description": "## ModulIntegrazii-ZUP 1.6.4.0\n\n### Что изменено\n- Добавлена функция обработки JSON с пустыми именами свойств.\n- Перед разбором JSON в `СтруктураИзJSON` и `СтруктураИзJSON_НаСервере` пустые ключи `\"\":` заменяются на `\"__doodocs_empty_property__\":`.\n- Обновлена версия модуля: `1.6.3.0` → `1.6.4.0`.\n\n### Из-за чего\n- Чтобы модуль не падал при разборе ответа API, если портал возвращает JSON с пустым именем свойства.\n",
     "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii-ZUP-1.6.4.0/ModulIntegrazii-ZUP-1.6.4.0.epf"
+  },
+  "ModulIntegrazii_BP 1.2.3.0": {
+    "version": "ModulIntegrazii_BP/1.2.3.0",
+    "date": "2026-06-16T05:53:28Z",
+    "config": "ModulIntegrazii_BP",
+    "description": "## ModulIntegrazii_BP 1.2.3.0\n\n### Что изменено\n- Добавлена обработка JSON с пустыми именами свойств.\n- Перед разбором JSON пустые ключи `\"\":` заменяются на `\"__doodocs_empty_property__\":`.\n- Исправлено заполнение кадрового перевода БП: данные формы заполняются через промежуточные данные и копируются обратно через `КопироватьДанныеФормы`.\n- Обновлена версия модуля: `1.2.1.0` → `1.2.3.0`.\n\n### Из-за чего\n- Чтобы модуль не падал при разборе нестандартного JSON от API.\n- Чтобы кадровый перевод корректно заполнялся в форме 1С.\n",
+    "download": "https://github.com/doodocs/doodocs-1c-changelog/releases/download/ModulIntegrazii_BP-1.2.3.0/ModulIntegrazii_BP-1.2.3.0.epf"
   }
 }
